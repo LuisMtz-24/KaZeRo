@@ -5,12 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MySQLConnection {
-    // IMPORTANTE: Reemplaza estos valores con tus credenciales de Railway
     private static final String HOST = "tramway.proxy.rlwy.net"; // ejemplo: containers-us-west-123.railway.app
-    private static final String PORT = "3306"; // puerto por defecto de MySQL
+    private static final String PORT = "52463"; // puerto por defecto de MySQL
     private static final String DATABASE = "kazero_db";
     private static final String USER = "root"; // usuario de Railway
-    private static final String PASSWORD = "TjaZprBUqjXhNXihY"; // contraseña de Railway
+    private static final String PASSWORD = "TjaZprBUqjXhNXihYezGiNZyRywSIGKS"; // contraseña de Railway
 
     private static final String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE
             + "?useSSL=true&allowPublicKeyRetrieval=true&serverTimezone=UTC";
