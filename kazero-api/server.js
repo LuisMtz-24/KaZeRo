@@ -1,4 +1,4 @@
-// server.js - API REST para KaZeRo
+// server.js - API REST para KaZeRo con mejor manejo de conexiones
 const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
@@ -8,24 +8,72 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Configuración mejorada de la conexión con timeouts más largos
 const pool = mysql.createPool({
   host: 'tramway.proxy.rlwy.net',
   port: 3306,
   user: 'root',
-  password: 'TjaZprBUqjXhNXihYezGiNZyRywSIGKS',
+  password: 'TjaZprBUqjXhNXihY',
   database: 'kazero_db',
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
+  // Timeouts aumentados para conexiones lentas
+  connectTimeout: 60000, // 60 segundos
+  acquireTimeout: 60000,
+  timeout: 60000,
+  // Configuraciones adicionales para estabilidad
+  enableKeepAlive: true,
+  keepAliveInitialDelay: 0
 });
 
+// Test de conexión mejorado
+app.get('/api/test', async (req, res) => {
+  let connection;
+  try {
+    console.log('🔍 Probando conexión a base de datos...');
+    console.log('📡 Host:', pool.config.connectionConfig.host);
+    console.log('🔌 Puerto:', pool.config.connectionConfig.port);
+
+    connection = await pool.getConnection();
+    console.log('✅ Conexión obtenida del pool');
+
+    const [result] = await connection.execute('SELECT 1 as test, NOW() as time');
+    console.log('✅ Query ejecutado exitosamente:', result);
+
+    res.json({
+      success: true,
+      message: 'Database connected!',
+      timestamp: result[0].time,
+      host: pool.config.connectionConfig.host
+    });
+  } catch (error) {
+    console.error('❌ Error detallado:', {
+      message: error.message,
+      code: error.code,
+      errno: error.errno,
+      sqlState: error.sqlState
+    });
+    res.status(500).json({
+      success: false,
+      error: error.message,
+      code: error.code
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+// ========== USUARIOS ==========
+
 app.post('/api/users/register', async (req, res) => {
+  let connection;
   try {
     const { username, password, email, address, postal_code } = req.body;
-
     console.log('📝 Registrando usuario:', username);
 
-    const [result] = await pool.execute(
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(
       'INSERT INTO users (username, password, email, address, postal_code) VALUES (?, ?, ?, ?, ?)',
       [username, password, email, address, postal_code]
     );
@@ -35,16 +83,19 @@ app.post('/api/users/register', async (req, res) => {
   } catch (error) {
     console.error('❌ Error registrando usuario:', error.message);
     res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
 app.post('/api/users/login', async (req, res) => {
+  let connection;
   try {
     const { username, password } = req.body;
-
     console.log('🔐 Login intento:', username);
 
-    const [rows] = await pool.execute(
+    connection = await pool.getConnection();
+    const [rows] = await connection.execute(
       'SELECT id, username, email, address, postal_code FROM users WHERE username = ? AND password = ?',
       [username, password]
     );
@@ -59,12 +110,16 @@ app.post('/api/users/login', async (req, res) => {
   } catch (error) {
     console.error('❌ Error en login:', error.message);
     res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
 app.get('/api/users/:id', async (req, res) => {
+  let connection;
   try {
-    const [rows] = await pool.execute(
+    connection = await pool.getConnection();
+    const [rows] = await connection.execute(
       'SELECT id, username, email, address, postal_code FROM users WHERE id = ?',
       [req.params.id]
     );
@@ -77,17 +132,19 @@ app.get('/api/users/:id', async (req, res) => {
   } catch (error) {
     console.error('❌ Error obteniendo usuario:', error.message);
     res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
-// Actualizar usuario
 app.put('/api/users/:id', async (req, res) => {
+  let connection;
   try {
     const { email, address, postal_code } = req.body;
-
     console.log('📝 Actualizando usuario ID:', req.params.id);
 
-    await pool.execute(
+    connection = await pool.getConnection();
+    await connection.execute(
       'UPDATE users SET email = ?, address = ?, postal_code = ? WHERE id = ?',
       [email, address, postal_code, req.params.id]
     );
@@ -97,17 +154,20 @@ app.put('/api/users/:id', async (req, res) => {
   } catch (error) {
     console.error('❌ Error actualizando usuario:', error.message);
     res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
-// ========== ENDPOINTS PRODUCTOS ==========
+// ========== PRODUCTOS ==========
 
-// Obtener todos los productos
 app.get('/api/products', async (req, res) => {
+  let connection;
   try {
     console.log('📦 Obteniendo todos los productos...');
 
-    const [rows] = await pool.execute(
+    connection = await pool.getConnection();
+    const [rows] = await connection.execute(
       'SELECT * FROM products ORDER BY created_at DESC'
     );
 
@@ -116,13 +176,16 @@ app.get('/api/products', async (req, res) => {
   } catch (error) {
     console.error('❌ Error obteniendo productos:', error.message);
     res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
-// Obtener productos por categoría
 app.get('/api/products/category/:category', async (req, res) => {
+  let connection;
   try {
-    const [rows] = await pool.execute(
+    connection = await pool.getConnection();
+    const [rows] = await connection.execute(
       'SELECT * FROM products WHERE category = ? ORDER BY name',
       [req.params.category]
     );
@@ -130,13 +193,16 @@ app.get('/api/products/category/:category', async (req, res) => {
   } catch (error) {
     console.error('❌ Error obteniendo productos por categoría:', error.message);
     res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
-// Obtener producto por ID
 app.get('/api/products/:id', async (req, res) => {
+  let connection;
   try {
-    const [rows] = await pool.execute(
+    connection = await pool.getConnection();
+    const [rows] = await connection.execute(
       'SELECT * FROM products WHERE id = ?',
       [req.params.id]
     );
@@ -149,14 +215,17 @@ app.get('/api/products/:id', async (req, res) => {
   } catch (error) {
     console.error('❌ Error obteniendo producto:', error.message);
     res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
-// Buscar productos
 app.get('/api/products/search/:query', async (req, res) => {
+  let connection;
   try {
     const searchTerm = `%${req.params.query}%`;
-    const [rows] = await pool.execute(
+    connection = await pool.getConnection();
+    const [rows] = await connection.execute(
       'SELECT * FROM products WHERE name LIKE ? OR description LIKE ? ORDER BY name',
       [searchTerm, searchTerm]
     );
@@ -164,20 +233,19 @@ app.get('/api/products/search/:query', async (req, res) => {
   } catch (error) {
     console.error('❌ Error buscando productos:', error.message);
     res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
-// Test endpoint
-app.get('/api/test', async (req, res) => {
-  try {
-    console.log('🔍 Probando conexión a base de datos...');
-    await pool.execute('SELECT 1');
-    console.log('✅ Conexión a base de datos exitosa');
-    res.json({ success: true, message: 'Database connected!' });
-  } catch (error) {
-    console.error('❌ Error de conexión a base de datos:', error.message);
-    res.status(500).json({ success: false, error: error.message });
-  }
+// Manejo de errores global
+app.use((err, req, res, next) => {
+  console.error('❌ Error no manejado:', err);
+  res.status(500).json({
+    success: false,
+    error: 'Internal server error',
+    message: err.message
+  });
 });
 
 // Puerto
@@ -187,4 +255,16 @@ app.listen(PORT, () => {
   console.log(`   KaZeRo API corriendo en puerto ${PORT}`);
   console.log(`   http://localhost:${PORT}/api/test`);
   console.log(`========================================\n`);
+
+  // Test de conexión inicial
+  pool.getConnection()
+    .then(connection => {
+      console.log('✅ Pool de conexiones inicializado correctamente');
+      connection.release();
+    })
+    .catch(err => {
+      console.error('❌ Error inicializando pool de conexiones:');
+      console.error('   Código:', err.code);
+      console.error('   Mensaje:', err.message);
+    });
 });
