@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">KaZeRo</string>
+
+    <!-- Login -->
+    <string name="login_title">Iniciar Sesión</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="no_account">¿No tienes cuenta?</string>
+    <string name="register">Registrarse</string>
+
+    <!-- Register -->
+    <string name="register_title">Crear Cuenta</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="address">Dirección</string>
+    <string name="postal_code">Código Postal</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="create_account">Crear Cuenta</string>
+    <string name="have_account">¿Ya tienes cuenta?</string>
+
+    <!-- Catalog -->
+    <string name="catalog_title">Catálogo</string>
+    <string name="search">Buscar</string>
+    <string name="all_categories">Todas</string>
+    <string name="rings">Anillos</string>
+    <string name="necklaces">Collares</string>
+    <string name="earrings">Aretes</string>
+    <string name="bracelets">Pulseras</string>
+
+    <!-- Product Detail -->
+    <string name="product_detail">Detalle del Producto</string>
+    <string name="add_to_cart">Agregar al Carrito</string>
+    <string name="price">Precio:</string>
+    <string name="description">Descripción</string>
+    <string name="stock_available">Disponible:</string>
+
+    <!-- Cart -->
+    <string name="cart_title">Carrito de Compras</string>
+    <string name="empty_cart">Tu carrito está vacío</string>
+    <string name="total">Total:</string>
+    <string name="checkout">Finalizar Compra</string>
+    <string name="remove">Eliminar</string>
+    <string name="quantity">Cantidad:</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Mi Perfil</string>
+    <string name="edit_profile">Editar Perfil</string>
+    <string name="save_changes">Guardar Cambios</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="account_info">Información de Cuenta</string>
+
+    <!-- Menu -->
+    <string name="menu_catalog">Catálogo</string>
+    <string name="menu_cart">Carrito</string>
+    <string name="menu_profile">Perfil</string>
+
+    <!-- Messages -->
+    <string name="login_success">Inicio de sesión exitoso</string>
+    <string name="login_error">Usuario o contraseña incorrectos</string>
+    <string name="register_success">Cuenta creada exitosamente</string>
+    <string name="register_error">Error al crear cuenta</string>
+    <string name="fields_required">Todos los campos son requeridos</string>
+    <string name="password_mismatch">Las contraseñas no coinciden</string>
+    <string name="added_to_cart">Producto agregado al carrito</string>
+    <string name="purchase_success">¡Compra realizada con éxito!</string>
+    <string name="update_success">Perfil actualizado</string>
+    <string name="connection_error">Error de conexión</string>
+</resources>

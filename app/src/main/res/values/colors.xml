@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores principales de KaZeRo -->
+    <color name="primary">#D4AF37</color> <!-- Dorado elegante -->
+    <color name="primary_dark">#B8941E</color>
+    <color name="primary_light">#E6C966</color>
+
+    <color name="secondary">#2C2C2C</color> <!-- Negro elegante -->
+    <color name="secondary_dark">#1A1A1A</color>
+    <color name="secondary_light">#3D3D3D</color>
+
+    <color name="accent">#8B7355</color> <!-- Bronce -->
+
+    <color name="background">#FFFFFF</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <color name="error">#D32F2F</color>
+    <color name="success">#388E3C</color>
+
+    <color name="divider">#BDBDBD</color>
+    <color name="card_background">#FFFFFF</color>
+</resources>
