@@ -22,14 +22,14 @@ public class CartManager {
     }
 
     public void addProduct(Product product, int quantity) {
-        // Verificar si el producto ya está en el carrito
+
         for (CartItem item : cartItems) {
             if (item.getProduct().getId() == product.getId()) {
                 item.setQuantity(item.getQuantity() + quantity);
                 return;
             }
         }
-        // Si no está, agregar nuevo item
+
         cartItems.add(new CartItem(product, quantity));
     }
 

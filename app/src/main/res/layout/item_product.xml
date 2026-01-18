@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Product Image -->
         <ImageView
             android:id="@+id/ivProductImage"
             android:layout_width="match_parent"
@@ -30,7 +29,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Product Name -->
             <TextView
                 android:id="@+id/tvProductName"
                 android:layout_width="match_parent"
@@ -41,8 +39,6 @@
                 android:textColor="@color/text_primary"
                 android:maxLines="2"
                 android:ellipsize="end" />
-
-            <!-- Category -->
             <TextView
                 android:id="@+id/tvCategory"
                 android:layout_width="wrap_content"
@@ -55,7 +51,6 @@
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="2dp" />
 
-            <!-- Price -->
             <TextView
                 android:id="@+id/tvProductPrice"
                 android:layout_width="match_parent"
@@ -66,7 +61,6 @@
                 android:textColor="@color/primary"
                 android:layout_marginTop="8dp" />
 
-            <!-- Stock -->
             <TextView
                 android:id="@+id/tvStock"
                 android:layout_width="match_parent"

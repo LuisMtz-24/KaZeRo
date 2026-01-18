@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:background="@color/background">
 
-    <!-- Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -30,7 +29,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Product Image -->
             <ImageView
                 android:id="@+id/ivProductImage"
                 android:layout_width="match_parent"
@@ -44,7 +42,6 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Category Badge -->
                 <TextView
                     android:id="@+id/tvProductCategory"
                     android:layout_width="wrap_content"
@@ -57,7 +54,6 @@
                     android:paddingVertical="4dp"
                     android:layout_marginBottom="8dp" />
 
-                <!-- Product Name -->
                 <TextView
                     android:id="@+id/tvProductName"
                     android:layout_width="match_parent"
@@ -68,7 +64,6 @@
                     android:textColor="@color/text_primary"
                     android:layout_marginBottom="8dp" />
 
-                <!-- Price -->
                 <TextView
                     android:id="@+id/tvProductPrice"
                     android:layout_width="match_parent"
@@ -79,7 +74,6 @@
                     android:textColor="@color/primary"
                     android:layout_marginBottom="16dp" />
 
-                <!-- Stock -->
                 <TextView
                     android:id="@+id/tvProductStock"
                     android:layout_width="match_parent"
@@ -89,7 +83,6 @@
                     android:textColor="@color/text_secondary"
                     android:layout_marginBottom="24dp" />
 
-                <!-- Description Title -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,7 +92,6 @@
                     android:textColor="@color/text_primary"
                     android:layout_marginBottom="8dp" />
 
-                <!-- Description -->
                 <TextView
                     android:id="@+id/tvProductDescription"
                     android:layout_width="match_parent"
@@ -110,7 +102,6 @@
                     android:lineSpacingExtra="4dp"
                     android:layout_marginBottom="24dp" />
 
-                <!-- Quantity Selector -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -163,7 +154,6 @@
 
     </ScrollView>
 
-    <!-- Add to Cart Button -->
     <Button
         android:id="@+id/btnAddToCart"
         android:layout_width="match_parent"

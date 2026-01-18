@@ -13,7 +13,6 @@
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <!-- Product Image -->
         <ImageView
             android:id="@+id/ivProductImage"
             android:layout_width="80dp"
@@ -28,7 +27,6 @@
             android:orientation="vertical"
             android:layout_marginStart="12dp">
 
-            <!-- Product Name -->
             <TextView
                 android:id="@+id/tvProductName"
                 android:layout_width="match_parent"
@@ -40,7 +38,6 @@
                 android:maxLines="2"
                 android:ellipsize="end" />
 
-            <!-- Price -->
             <TextView
                 android:id="@+id/tvProductPrice"
                 android:layout_width="match_parent"
@@ -50,7 +47,6 @@
                 android:textColor="@color/primary"
                 android:layout_marginTop="4dp" />
 
-            <!-- Quantity Controls -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,7 +91,6 @@
                     android:layout_height="1dp"
                     android:layout_weight="1" />
 
-                <!-- Subtotal -->
                 <TextView
                     android:id="@+id/tvSubtotal"
                     android:layout_width="wrap_content"
@@ -107,7 +102,6 @@
 
             </LinearLayout>
 
-            <!-- Remove Button -->
             <Button
                 android:id="@+id/btnRemove"
                 android:layout_width="wrap_content"

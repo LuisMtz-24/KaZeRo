@@ -123,8 +123,6 @@ public class DatabaseHelper {
         }
     }
 
-    // ============== PRODUCTOS ==============
-
     public static List<Product> getAllProducts() {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM products ORDER BY created_at DESC";

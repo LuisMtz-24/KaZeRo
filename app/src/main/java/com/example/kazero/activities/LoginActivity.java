@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         executorService = Executors.newSingleThreadExecutor();
         mainHandler = new Handler(Looper.getMainLooper());
 
-        // Si ya está logueado, ir al catálogo
         if (sessionManager.isLoggedIn()) {
             goToCatalog();
         }

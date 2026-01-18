@@ -13,7 +13,6 @@
         android:padding="24dp"
         android:gravity="center">
 
-        <!-- Logo -->
         <TextView
             android:id="@+id/tvLogo"
             android:layout_width="wrap_content"
@@ -34,7 +33,6 @@
             android:textColor="@color/text_secondary"
             android:layout_marginBottom="60dp" />
 
-        <!-- Título -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +42,6 @@
             android:textStyle="bold"
             android:layout_marginBottom="32dp" />
 
-        <!-- Username Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,7 +58,6 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,7 +75,6 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Login Button -->
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
@@ -88,7 +83,6 @@
             style="@style/ButtonPrimary"
             android:layout_marginBottom="16dp" />
 
-        <!-- Register Link -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

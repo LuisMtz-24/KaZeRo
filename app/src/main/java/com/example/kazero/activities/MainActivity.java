@@ -12,7 +12,7 @@ import com.example.kazero.database.MySQLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int SPLASH_DURATION = 2000; // 2 segundos
+    private static final int SPLASH_DURATION = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             boolean connected = MySQLConnection.testConnection();
             runOnUiThread(() -> {
                 Toast.makeText(this,
-                        connected ? "✅ Conexión exitosa" : "❌ Error de conexión",
+                        connected ? "Conexión exitosa" : " Error de conexión",
                         Toast.LENGTH_LONG).show();
             });
         }).start();
