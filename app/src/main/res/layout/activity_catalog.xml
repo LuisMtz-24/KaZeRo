@@ -64,30 +64,40 @@
 
             <Button
                 android:id="@+id/btnAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:text="Todas"
                 android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnRings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:text="Anillos"
                 android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnNecklaces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:text="Collares"
                 android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnEarrings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:text="Aretes"
                 android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnBracelets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:text="Pulseras" />
 
