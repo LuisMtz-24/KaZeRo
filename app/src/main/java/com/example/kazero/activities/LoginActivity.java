@@ -33,8 +33,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("LOGIN", "LoginActivity creada");
         setContentView(R.layout.activity_login);
+        Log.d("LOGIN", "LoginActivity creada");
+
 
         initViews();
         sessionManager = new SessionManager(this);
