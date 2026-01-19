@@ -37,13 +37,6 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    // MySQL Connector
-    implementation("mysql:mysql-connector-java:8.0.33")
-
-    // Gson para JSON
-    implementation("com.google.code.gson:gson:2.10.1")
-
-    // Glide para imágenes
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 

@@ -8,7 +8,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kazero.R;
-import com.example.kazero.database.MySQLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,15 +23,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }, SPLASH_DURATION);
-        // En MainActivity, agregar temporalmente en onCreate():
-        new Thread(() -> {
-            boolean connected = MySQLConnection.testConnection();
-            runOnUiThread(() -> {
-                Toast.makeText(this,
-                        connected ? "Conexión exitosa" : " Error de conexión",
-                        Toast.LENGTH_LONG).show();
-            });
-        }).start();
     }
 
     }

@@ -1,4 +1,3 @@
-
 const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
@@ -8,23 +7,20 @@ app.use(cors());
 app.use(express.json());
 
 const pool = mysql.createPool({
-  host: 'tramway.proxy.rlwy.net',
-  port: 3306,
-  user: 'root',
-  password: 'TjaZprBUqjXhNXihYezGiNZyRywSIGKS',
-  database: 'kazero_db',
+  host: process.env.MYSQLHOST || 'centerbeam.proxy.rlwy.net',
+  port: process.env.MYSQLPORT || 32586,
+  user: process.env.MYSQLUSER || 'root',
+  password: process.env.MYSQL_ROOT_PASSWORD || 'LCDLQgSPnBfFkVpsawMZZJMjPhezpejH',
+  database: process.env.MYSQLDATABASE || 'kazero_db',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-
   connectTimeout: 60000,
   acquireTimeout: 60000,
   timeout: 60000,
-
   enableKeepAlive: true,
   keepAliveInitialDelay: 0
 });
-
 app.get('/api/test', async (req, res) => {
   let connection;
   try {

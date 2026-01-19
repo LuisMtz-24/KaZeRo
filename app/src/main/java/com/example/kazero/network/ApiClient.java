@@ -16,12 +16,9 @@ import java.util.List;
 
 public class ApiClient {
 
-    // IMPORTANTE: Cambia esta URL por la de tu API desplegada
-    // Si estás usando Railway, será algo como: https://tu-app.up.railway.app
-    // Si estás en desarrollo local con emulador: http://10.0.2.2:3000
-    private static final String BASE_URL = "https://tramway.proxy.rlwy.net:3000";
 
-    // ==================== USER ENDPOINTS ====================
+    private static final String BASE_URL = "https://kazero-production.up.railway.app";
+
 
     public static User registerUser(User user) {
         try {
