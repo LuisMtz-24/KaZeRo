@@ -9,9 +9,9 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -64,42 +64,32 @@
 
             <Button
                 android:id="@+id/btnAll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Todas"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Todas"
                 android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnRings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Anillos"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Anillos"
                 android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnNecklaces"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Collares"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Collares"
                 android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnEarrings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Aretes"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Aretes"
                 android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnBracelets"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pulseras"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Pulseras" />
 
         </LinearLayout>
 
