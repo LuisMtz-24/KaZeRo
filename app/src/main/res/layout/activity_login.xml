@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#FFFFFF"
     android:fillViewport="true">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="KaZeRo"
             android:textSize="48sp"
-            android:textColor="@color/primary"
+            android:textColor="#D4AF37"
             android:fontFamily="serif"
             android:textStyle="bold"
             android:layout_marginTop="60dp"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Joyería Fina"
             android:textSize="16sp"
-            android:textColor="@color/text_secondary"
+            android:textColor="#757575"
             android:layout_marginBottom="60dp" />
 
         <TextView
@@ -38,16 +38,18 @@
             android:layout_height="wrap_content"
             android:text="@string/login_title"
             android:textSize="28sp"
-            android:textColor="@color/text_primary"
+            android:textColor="#212121"
             android:textStyle="bold"
             android:layout_marginBottom="32dp" />
 
+        <!-- USERNAME INPUT - SIN startIconDrawable para evitar problemas -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/EditTextStyle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginBottom="16dp"
-            app:startIconDrawable="@android:drawable/ic_menu_myplaces">
+            app:boxStrokeColor="#D4AF37"
+            app:hintTextColor="#757575">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUsername"
@@ -55,15 +57,19 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/username"
                 android:inputType="text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textColor="#212121"
+                android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- PASSWORD INPUT - SIN startIconDrawable -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/EditTextStyle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginBottom="24dp"
-            app:startIconDrawable="@android:drawable/ic_lock_lock"
+            app:boxStrokeColor="#D4AF37"
+            app:hintTextColor="#757575"
             app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -72,15 +78,21 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textColor="#212121"
+                android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <!-- BOTÓN DE LOGIN -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="@string/login"
-            style="@style/ButtonPrimary"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#D4AF37"
+            app:cornerRadius="8dp"
             android:layout_marginBottom="16dp" />
 
         <LinearLayout
@@ -93,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_account"
-                android:textColor="@color/text_secondary"
+                android:textColor="#757575"
                 android:layout_marginEnd="4dp" />
 
             <TextView
@@ -101,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/register"
-                android:textColor="@color/primary"
+                android:textColor="#D4AF37"
                 android:textStyle="bold"
                 android:clickable="true"
                 android:focusable="true" />

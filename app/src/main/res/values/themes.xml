@@ -1,65 +1,60 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Tema BASE con ActionBar (aunque no lo uses, debe estar definido) -->
-    <style name="Theme.KaZeRo" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
+    <!-- Tema BASE - Simplificado -->
+    <style name="Theme.KaZeRo" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Colores primarios -->
+        <item name="colorPrimary">#D4AF37</item>
+        <item name="colorPrimaryDark">#B8941E</item>
+        <item name="colorAccent">#D4AF37</item>
 
-        <item name="android:windowBackground">@color/background</item>
-        <item name="android:textColorPrimary">@color/text_primary</item>
-        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <!-- Fondo blanco -->
+        <item name="android:windowBackground">#FFFFFF</item>
 
-        <!-- Colores de la ActionBar si la usaras -->
-        <item name="actionBarStyle">@style/CustomActionBar</item>
+        <!-- Colores de texto -->
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textColorSecondary">#757575</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">#D4AF37</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 
-    <!-- Tema SIN ActionBar (el que usarás en todas las pantallas) -->
+    <!-- Tema SIN ActionBar (el que usas) -->
     <style name="Theme.KaZeRo.NoActionBar" parent="Theme.KaZeRo">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <!-- Asegura que el fondo sea visible -->
-        <item name="android:windowBackground">@color/background</item>
     </style>
 
-    <!-- ActionBar Style personalizado -->
-    <style name="CustomActionBar" parent="Widget.MaterialComponents.ActionBar.Solid">
-        <item name="background">@color/primary</item>
-        <item name="titleTextStyle">@style/CustomActionBarTitle</item>
-    </style>
-
-    <style name="CustomActionBarTitle" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:textColor">@color/text_white</item>
-    </style>
-
-    <!-- Button Styles -->
+    <!-- Button Primary Style -->
     <style name="ButtonPrimary" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/primary</item>
-        <item name="android:textColor">@color/text_white</item>
+        <item name="backgroundTint">#D4AF37</item>
+        <item name="android:textColor">#FFFFFF</item>
         <item name="cornerRadius">8dp</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
+    <!-- Button Secondary Style -->
     <style name="ButtonSecondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="strokeColor">@color/primary</item>
-        <item name="android:textColor">@color/primary</item>
+        <item name="strokeColor">#D4AF37</item>
+        <item name="android:textColor">#D4AF37</item>
         <item name="cornerRadius">8dp</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
     </style>
 
-    <!-- EditText Style -->
+    <!-- EditText Style - Simplificado -->
     <style name="EditTextStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/primary</item>
-        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="boxStrokeColor">#D4AF37</item>
+        <item name="hintTextColor">#757575</item>
     </style>
 
     <!-- Card Style -->
     <style name="CardStyle" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">12dp</item>
         <item name="cardElevation">4dp</item>
-        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardBackgroundColor">#FFFFFF</item>
     </style>
 
 </resources>

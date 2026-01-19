@@ -6,8 +6,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +21,7 @@ import com.example.kazero.R;
 import com.example.kazero.adapters.ProductAdapter;
 import com.example.kazero.database.DatabaseHelper;
 import com.example.kazero.models.Product;
+import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,8 +72,23 @@ public class CatalogActivity extends AppCompatActivity implements ProductAdapter
     }
 
     private void setupToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Configurar el menú del toolbar
+        toolbar.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.menu_profile) {
+                startActivity(new Intent(this, ProfileActivity.class));
+                return true;
+            } else if (id == R.id.menu_cart) {
+                startActivity(new Intent(this, CartActivity.class));
+                return true;
+            }
+
+            return false;
+        });
     }
 
     private void setupRecyclerView() {
@@ -166,10 +179,7 @@ public class CatalogActivity extends AppCompatActivity implements ProductAdapter
     }
 
     private void highlightSelectedCategory(String category) {
-        // Reset todos los botones
         resetCategoryButtons();
-
-        // Highlight el seleccionado usando ContextCompat
         int highlightColor = ContextCompat.getColor(this, R.color.primary_light);
 
         switch (category) {
@@ -205,27 +215,6 @@ public class CatalogActivity extends AppCompatActivity implements ProductAdapter
         Intent intent = new Intent(this, ProductDetailActivity.class);
         intent.putExtra("product_id", product.getId());
         startActivity(intent);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.menu_profile) {
-            startActivity(new Intent(this, ProfileActivity.class));
-            return true;
-        } else if (id == R.id.menu_cart) {
-            startActivity(new Intent(this, CartActivity.class));
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
